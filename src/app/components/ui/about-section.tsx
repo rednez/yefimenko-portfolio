@@ -3,6 +3,8 @@
 import { skills } from '@/app/data';
 import { useIntersection } from '@/app/hooks/intersections';
 import { Social } from '@/app/types';
+import dayjs from 'dayjs';
+import { AboutSectionSkillChip } from './about-section-skill-chip';
 
 const socials: Social[] = [
   {
@@ -19,21 +21,16 @@ const socials: Social[] = [
       <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" />
     ),
   },
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com/rednez',
-    icon: (
-      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-    ),
-  },
 ];
 
 export function AboutSection() {
   const [aboutRef, aboutVisible] = useIntersection<HTMLDivElement>();
   const [skillsRef, skillsVisible] = useIntersection<HTMLDivElement>();
 
+  const experienceYears = dayjs().diff(dayjs('2015-09-01'), 'year');
+
   return (
-    <section id="about" className="px-10 py-24 max-w-5xl mx-auto">
+    <section id="about" className="px-10 pb-16 max-w-5xl mx-auto">
       <div
         ref={aboutRef}
         className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center transition-all duration-700 ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
@@ -45,17 +42,19 @@ export function AboutSection() {
           <h2 className="font-serif font-bold leading-tight tracking-tight mb-6 text-4xl">
             I build things
             <br />
-            for the web.
+            for the web
           </h2>
           <p className="text-slate-500 leading-relaxed mb-4 text-sm">
-            I&apos;m a full-stack developer with 5+ years of experience turning
-            complex problems into clean, intuitive products. I care deeply about
-            performance, accessibility, and the tiny details that make an
-            interface feel alive.
+            I&apos;m a frontend developer with {experienceYears} years of
+            experience turning complex problems into clean, intuitive products.
+            I care deeply about performance, accessibility, and the tiny details
+            that make an interface feel alive — with solid backend experience to
+            back it up.
           </p>
           <p className="text-slate-500 leading-relaxed text-sm mb-8">
-            When I&apos;m not coding, you&apos;ll find me contributing to open
-            source, writing dev articles, or experimenting with generative art.
+            I have deep experience in the Fintech domain, building products for
+            banking, payments, and financial data — where reliability, security,
+            and precision are non-negotiable.
           </p>
           <div className="flex gap-5 flex-wrap">
             {socials.map((s) => (
@@ -79,21 +78,14 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* Skills */}
         <div ref={skillsRef} className="flex flex-wrap gap-2.5">
-          {skills.map((sk, i) => (
-            <span
-              key={sk.label}
-              className={`
-                    text-sm font-medium px-4 py-1.5 rounded-full border
-                    transition-all duration-300
-                    ${sk.accent ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-white border-stone-200 text-slate-600'}
-                    ${skillsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
-                  `}
-              style={{ transitionDelay: `${i * 45}ms` }}
-            >
-              {sk.label}
-            </span>
+          {skills.map((skill, i) => (
+            <AboutSectionSkillChip
+              key={skill.label}
+              skill={skill}
+              isVisible={skillsVisible}
+              appearIndex={i}
+            />
           ))}
         </div>
       </div>

@@ -2,6 +2,8 @@
 
 import { useIntersection } from '@/app/hooks/intersections';
 import { Project } from '@/app/types';
+import { ProjectStatusBadge } from './project-status-badge';
+import { ProjectStatusNote } from './project-status-note';
 
 interface ProjectCardProps {
   p: Project;
@@ -27,9 +29,7 @@ export function ProjectCard({ p, i }: ProjectCardProps) {
       style={{ transitionDelay: `${i * 70}ms` }}
     >
       <div className="flex justify-between items-start mb-3">
-        <h3 className="font-serif text-lg font-bold text-slate-900 leading-snug">
-          {p.title}
-        </h3>
+        <ProjectStatusBadge project={p} />
         <svg
           className={`shrink-0 ml-2 mt-0.5 w-4 h-4 ${p.arrow} transition-transform duration-200`}
           viewBox="0 0 24 24"
@@ -45,6 +45,7 @@ export function ProjectCard({ p, i }: ProjectCardProps) {
       <p className="text-sm text-slate-500 leading-relaxed mb-5">
         {p.description}
       </p>
+      {p.statusNote && <ProjectStatusNote note={p.statusNote} />}
       <div className="flex flex-wrap gap-1.5">
         {p.tags.map((t) => (
           <span

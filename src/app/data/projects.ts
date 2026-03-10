@@ -2,11 +2,13 @@ import { Project } from '@/app/types';
 
 export const projects: Project[] = [
   {
-    title: 'E-Commerce Platform',
+    title: 'Finwaze',
     description:
-      'Full-stack shopping experience with real-time inventory, Stripe payments, and a headless CMS.',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    link: 'https://github.com',
+      'A full-featured financial management tool that supports multiple accounts and currencies, and offers budget tracking and analytics.',
+    status: 'Active Development',
+    statusNote: 'Not production-ready yet',
+    tags: ['Angular', 'Tailwind', 'PrimeNG', 'Postgres'],
+    link: 'https://finwaze.app',
     bg: 'bg-emerald-50',
     border: 'hover:border-emerald-400',
     shadow: 'hover:shadow-emerald-100',
@@ -14,11 +16,13 @@ export const projects: Project[] = [
     arrow: 'text-emerald-500',
   },
   {
-    title: 'Task Flow App',
+    title: 'Sprytno',
+    status: 'MVP Stage',
+    statusNote: 'More features planned in upcoming iterations',
     description:
-      'Kanban-style project manager with drag-and-drop, team collaboration, and analytics dashboard.',
-    tags: ['Next.js', 'TypeScript', 'Prisma'],
-    link: 'https://github.com',
+      'A web app where users post requests or offers, then match with others to complete tasks and earn through quick side gigs.',
+    tags: ['Next.js', 'TypeScript', 'Postgres'],
+    link: 'https://web.sprytno.app',
     bg: 'bg-violet-50',
     border: 'hover:border-violet-400',
     shadow: 'hover:shadow-violet-100',
@@ -26,11 +30,11 @@ export const projects: Project[] = [
     arrow: 'text-violet-500',
   },
   {
-    title: 'Dev Blog Engine',
+    title: 'iSpent',
     description:
-      'Static site generator built from scratch with MDX support, syntax highlighting, and RSS feed.',
-    tags: ['Astro', 'MDX', 'Tailwind'],
-    link: 'https://github.com',
+      'The first simplified iteration of personal finance management, focused on tracking daily expenses against a monthly budget.',
+    tags: ['Angular', 'Tailwind', 'Postgres', 'NestJS', 'Prisma'],
+    link: 'https://ispent.pp.ua/',
     bg: 'bg-sky-50',
     border: 'hover:border-sky-400',
     shadow: 'hover:shadow-sky-100',
@@ -38,11 +42,11 @@ export const projects: Project[] = [
     arrow: 'text-sky-500',
   },
   {
-    title: 'Real-Time Chat',
+    title: 'angular-user-idle',
     description:
-      'WebSocket-powered chat with rooms, presence indicators, message history, and file sharing.',
-    tags: ['React', 'Socket.io', 'Redis'],
-    link: 'https://github.com',
+      'An Angular 15+ library that tracks user inactivity and lets applications respond to idle state.',
+    tags: ['Angular', 'TypeScript', 'RxJS'],
+    link: 'https://github.com/rednez/angular-user-idle',
     bg: 'bg-lime-50',
     border: 'hover:border-lime-400',
     shadow: 'hover:shadow-lime-100',
