@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { HeroSectionAvatar } from './hero-section-avatar';
 import { HeroSectionBadge } from './hero-section-badge';
 import { HeroSectionBlob } from './hero-section-blob';
 import { HeroSectionCtas } from './hero-section-ctas';
@@ -18,11 +19,14 @@ export function HeroSection() {
     <section className="min-h-screen flex flex-col justify-center px-10 pt-32 pb-16 max-w-5xl mx-auto relative overflow-hidden">
       <HeroSectionBlob heroVisible={heroVisible} />
 
-      <div className="relative z-10">
-        <HeroSectionBadge heroVisible={heroVisible} />
-        <HeroSectionHeading heroVisible={heroVisible} />
-        <HeroSectionSubHeading heroVisible={heroVisible} />
-        <HeroSectionCtas heroVisible={heroVisible} />
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <HeroSectionBadge heroVisible={heroVisible} />
+          <HeroSectionHeading heroVisible={heroVisible} />
+          <HeroSectionSubHeading heroVisible={heroVisible} />
+          <HeroSectionCtas heroVisible={heroVisible} />
+        </div>
+        <HeroSectionAvatar heroVisible={heroVisible} />
       </div>
     </section>
   );
