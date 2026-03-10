@@ -20,7 +20,7 @@ export function ProjectCard({ p, i }: ProjectCardProps) {
       rel="noreferrer"
       ref={ref}
       className={`
-        block no-underline rounded-2xl p-7 border-2 border-transparent
+        block no-underline rounded-2xl p-7 border-2 border-transparent dark:border-stone-800
         ${p.bg} ${p.border} ${p.shadow}
         hover:shadow-xl hover:-translate-y-1
         transition-all duration-300
@@ -42,7 +42,7 @@ export function ProjectCard({ p, i }: ProjectCardProps) {
           <path d="M7 17L17 7M7 7h10v10" />
         </svg>
       </div>
-      <p className="text-sm text-slate-500 leading-relaxed mb-5">
+      <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5">
         {p.description}
       </p>
       {p.statusNote && <ProjectStatusNote note={p.statusNote} />}

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
-import { Navbar } from './components/layout';
+import { Navbar, ThemeProvider } from './components/layout';
 import './globals.css';
+
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`;
 
 const playfairDisplay = Playfair_Display({
   variable: '--font-playfair-display',
@@ -29,12 +31,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${playfairDisplay.variable} ${geistMono.variable} ${geistSans.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <ThemeProvider>
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

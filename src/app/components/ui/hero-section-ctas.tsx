@@ -9,10 +9,10 @@ export function HeroSectionCtas({ heroVisible }: { heroVisible: boolean }) {
     >
       <a
         href="#projects"
-        className="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-900 
-                 text-white rounded-full text-sm font-semibold no-underline 
+        className="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-900 dark:bg-white
+                 text-white dark:text-slate-900 rounded-full text-sm font-semibold no-underline 
                   hover:-translate-y-0.5 
-                  hover:shadow-lg hover:shadow-slate-900/20 transition-all 
+                  hover:shadow-lg hover:shadow-slate-900/20 dark:hover:shadow-white/15 transition-all 
                   duration-200"
       >
         View Projects
@@ -29,7 +29,7 @@ export function HeroSectionCtas({ heroVisible }: { heroVisible: boolean }) {
       <a
         href="mailto:vasyl@yefimenko.dev"
         className="inline-flex items-center gap-2 px-7 py-3.5 
-              border border-stone-300 text-slate-700 rounded-full 
+              border border-stone-300 dark:border-stone-600 text-slate-700 dark:text-slate-300 rounded-full 
               text-sm font-medium no-underline hover:border-emerald-400 
               hover:text-emerald-600 transition-all duration-200"
       >

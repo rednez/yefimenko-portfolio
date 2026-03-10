@@ -4,13 +4,13 @@ import { ProjectCard } from './project-card';
 export function ProjectsSection() {
   return (
     <section id="projects" className="px-10 pt-12 pb-12 max-w-5xl mx-auto">
-      <p className="font-mono text-xs text-emerald-600 tracking-widest font-semibold uppercase mb-3">
+      <p className="font-mono text-xs text-emerald-600 dark:text-emerald-400 tracking-widest font-semibold uppercase mb-3">
         Public Work
       </p>
       <h2 className="font-serif font-bold text-4xl tracking-tight mb-3">
         Featured Projects
       </h2>
-      <p className="text-slate-400 text-sm mb-12 max-w-md">
+      <p className="text-slate-400 dark:text-slate-500 text-sm mb-12 max-w-md">
         A selection of my open-source projects and public work. I&apos;m
       </p>
 
@@ -25,7 +25,9 @@ export function ProjectsSection() {
           href="https://github.com/rednez"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 no-underline border-b border-slate-300 pb-0.5 hover:text-emerald-600 hover:border-emerald-400 transition-all duration-200"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 
+          dark:text-slate-500 no-underline border-b border-slate-300 dark:border-slate-600 pb-0.5 
+          hover:text-emerald-600 hover:border-emerald-400 transition-all duration-200"
         >
           See all public projects on GitHub →
         </a>

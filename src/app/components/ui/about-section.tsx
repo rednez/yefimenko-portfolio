@@ -36,7 +36,7 @@ export function AboutSection() {
         className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center transition-all duration-700 ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div>
-          <p className="font-mono text-xs text-emerald-600 tracking-widest font-semibold uppercase mb-4">
+          <p className="font-mono text-xs text-emerald-600 dark:text-emerald-400 tracking-widest font-semibold uppercase mb-4">
             About Me
           </p>
           <h2 className="font-serif font-bold leading-tight tracking-tight mb-6 text-4xl">
@@ -44,14 +44,14 @@ export function AboutSection() {
             <br />
             for the web
           </h2>
-          <p className="text-slate-500 leading-relaxed mb-4 text-sm">
+          <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm">
             I&apos;m a frontend developer with {experienceYears} years of
             experience turning complex problems into clean, intuitive products.
             I care deeply about performance, accessibility, and the tiny details
             that make an interface feel alive — with solid backend experience to
             back it up.
           </p>
-          <p className="text-slate-500 leading-relaxed text-sm mb-8">
+          <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm mb-8">
             I have deep experience in the Fintech domain, building products for
             banking, payments, and financial data — where reliability, security,
             and precision are non-negotiable.
@@ -63,7 +63,7 @@ export function AboutSection() {
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 text-sm font-medium text-slate-500 no-underline hover:text-emerald-600 transition-colors duration-200"
+                className="flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 no-underline hover:text-emerald-600 transition-colors duration-200"
               >
                 <svg
                   className="w-4 h-4"

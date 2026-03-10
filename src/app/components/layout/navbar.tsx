@@ -16,7 +16,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 flex justify-between 
         items-center px-10 py-4 transition-all duration-300 
-        ${scrolled ? 'bg-stone-50/90 backdrop-blur-md border-b border-stone-200' : 'bg-transparent'}`}
+        ${scrolled ? 'bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-700' : 'bg-transparent'}`}
     >
       <NavbarLogo />
 
@@ -25,7 +25,7 @@ export function Navbar() {
           <a
             key={l}
             href={`#${l.toLowerCase()}`}
-            className="text-sm font-medium text-slate-500 no-underline hover:text-emerald-600 transition-colors duration-200"
+            className="text-sm font-medium text-slate-500 dark:text-slate-400 no-underline hover:text-emerald-600 transition-colors duration-200"
           >
             {l}
           </a>

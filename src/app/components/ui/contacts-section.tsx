@@ -1,3 +1,4 @@
+import { ThemeSwitcher } from '../layout/theme-switcher';
 import { BuiltInUkraine } from './build-in-ukraine';
 import { FooterCopyrights } from './footer-copyrights';
 
@@ -5,7 +6,7 @@ export function ContactsSection() {
   return (
     <section
       id="contact"
-      className="bg-slate-900 px-10 pt-24 pb-16 text-center"
+      className="bg-slate-900 dark:bg-slate-950 px-10 pt-24 pb-16 text-center"
     >
       <p className="font-mono text-xs text-emerald-400 tracking-widest font-semibold uppercase mb-5">
         Contact
@@ -39,6 +40,7 @@ export function ContactsSection() {
         </svg>
       </a>
       <FooterCopyrights />
+      <ThemeSwitcher />
     </section>
   );
 }
