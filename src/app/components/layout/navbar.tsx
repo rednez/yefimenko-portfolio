@@ -20,7 +20,7 @@ export function Navbar() {
     >
       <NavbarLogo />
 
-      <div className="flex gap-8">
+      <div className="flex gap-4 sm:gap-8">
         {['About', 'Projects', 'Contact'].map((l) => (
           <a
             key={l}

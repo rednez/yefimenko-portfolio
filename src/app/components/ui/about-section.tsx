@@ -30,7 +30,7 @@ export function AboutSection() {
   const experienceYears = dayjs().diff(dayjs('2015-09-01'), 'year');
 
   return (
-    <section id="about" className="px-10 pb-16 max-w-5xl mx-auto">
+    <section id="about" className="px-10 pb-20 max-w-5xl mx-auto">
       <div
         ref={aboutRef}
         className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center transition-all duration-700 ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
