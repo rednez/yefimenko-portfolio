@@ -16,7 +16,7 @@ export function HeroSection() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center px-10 pt-32 pb-16 max-w-5xl mx-auto relative overflow-hidden">
-      <HeroSectionBlob />
+      <HeroSectionBlob heroVisible={heroVisible} />
 
       <div className="relative z-10">
         <HeroSectionBadge heroVisible={heroVisible} />
