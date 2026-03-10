@@ -1,4 +1,5 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
 import { Navbar, ThemeProvider } from './components/layout';
@@ -40,6 +41,7 @@ export default function RootLayout({
         className={`${playfairDisplay.variable} ${geistMono.variable} ${geistSans.variable} antialiased`}
       >
         <GoogleAnalytics gaId="G-G9N8T0T8YR" />
+        <Analytics />
         <ThemeProvider>
           <Navbar />
           {children}
