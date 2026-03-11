@@ -157,7 +157,7 @@ export default function RootLayout({
       <body
         className={`${playfairDisplay.variable} ${geistMono.variable} ${geistSans.variable} antialiased`}
       >
-        <GoogleAnalytics gaId="G-G9N8T0T8YR" />
+        <GoogleAnalytics gaId="G-36E47TDMBH" />
         <ThemeProvider>
           <Navbar />
           {children}
