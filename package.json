@@ -1,6 +1,14 @@
 {
   "name": "yefimenko-portfolio",
   "version": "0.1.0",
+  "author": {
+    "name": "Vasyl Yefimenko",
+    "email": "rednez@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rednez/yefimenko-portfolio.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
