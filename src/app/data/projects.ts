@@ -5,7 +5,7 @@ export const projects: Project[] = [
     title: 'Finwaze',
     description:
       'A full-featured financial management tool that supports multiple accounts and currencies, and offers budget tracking and analytics.',
-    tags: ['Angular', 'Tailwind', 'PrimeNG', 'Postgres'],
+    tags: ['Angular', 'Signals', 'RxJS', 'Tailwind', 'PrimeNG', 'Postgres'],
     link: 'https://finwaze.app',
     bg: 'bg-emerald-50 dark:bg-emerald-950/40',
     border: 'hover:border-emerald-400',
