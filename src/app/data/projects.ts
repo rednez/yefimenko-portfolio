@@ -29,10 +29,11 @@ export const projects: Project[] = [
   },
   {
     title: 'iSpent',
+    status: 'closed',
     description:
       'The first simplified iteration of personal finance management, focused on tracking daily expenses against a monthly budget.',
     tags: ['Angular', 'Tailwind', 'Postgres', 'NestJS', 'Prisma'],
-    link: 'https://ispent.pp.ua/',
+    link: 'https://github.com/rednez/ispent',
     bg: 'bg-sky-50 dark:bg-sky-950/40',
     border: 'hover:border-sky-400',
     shadow: 'hover:shadow-sky-100 dark:hover:shadow-sky-950/30',
