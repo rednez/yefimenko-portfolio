@@ -11,7 +11,7 @@ export function ProjectsSection() {
         Featured Projects
       </h2>
       <p className="text-slate-400 dark:text-slate-500 text-sm mb-12 max-w-md">
-        A selection of my open-source projects and public work. I&apos;m
+        A selection of my open-source projects and public work
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
