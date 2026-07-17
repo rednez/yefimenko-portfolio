@@ -27,7 +27,7 @@ export function HeroSectionCtas({ heroVisible }: { heroVisible: boolean }) {
         </svg>
       </a>
       <a
-        href="mailto:vasyl@yefimenko.dev"
+        href="mailto:hello@yefimenko.dev"
         className="inline-flex items-center gap-2 px-7 py-3.5 
               border border-stone-300 dark:border-stone-600 text-slate-700 dark:text-slate-300 rounded-full 
               text-sm font-medium no-underline hover:border-emerald-400 

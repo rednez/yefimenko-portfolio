@@ -25,7 +25,7 @@ export function ContactsSection() {
       </p>
       <BuiltInUkraine />
       <a
-        href="mailto:vasyl@yefimenko.dev"
+        href="mailto:hello@yefimenko.dev"
         className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white rounded-full text-base font-semibold no-underline hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-200"
       >
         Say Hello
