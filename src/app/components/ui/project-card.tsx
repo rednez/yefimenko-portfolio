@@ -25,9 +25,12 @@ export function ProjectCard({ p, i }: ProjectCardProps) {
       ref={ref}
       onPointerMove={onPointerMove}
       className={`group relative flex flex-col no-underline bg-surface p-7 sm:p-9 md:min-h-72 overflow-hidden
-        transition-opacity duration-700 focus-visible:outline-offset-[-2px]
+        rounded-2xl border border-line hover:border-line-strong hover:-translate-y-1
+        hover:shadow-[0_24px_48px_-24px_color-mix(in_srgb,var(--accent)_35%,transparent)]
         ${visible ? 'opacity-100' : 'opacity-0'}`}
-      style={{ transitionDelay: `${i * 80}ms` }}
+      style={{
+        transition: `opacity 0.7s ease ${i * 80}ms, transform 0.3s ease, border-color 0.2s ease, box-shadow 0.3s ease`,
+      }}
     >
       {/* Cursor spotlight */}
       <span

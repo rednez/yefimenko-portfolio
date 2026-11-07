@@ -8,19 +8,17 @@ export function ProjectsSection() {
       id="projects"
       className="max-w-6xl mx-auto px-5 sm:px-10 pt-8 pb-24 md:pb-32 scroll-mt-16"
     >
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-        <div>
-          <SectionLabel className="mb-6">Public Work</SectionLabel>
-          <h2 className="font-semibold text-4xl sm:text-5xl tracking-[-0.04em] leading-[1.02]">
-            Featured Projects
-          </h2>
-        </div>
-        <p className="text-muted text-[15px] max-w-xs md:text-right">
+      <div className="mb-12">
+        <SectionLabel className="mb-6">Public Work</SectionLabel>
+        <h2 className="font-semibold text-4xl sm:text-5xl tracking-[-0.04em] leading-[1.02] mb-4">
+          Featured Projects
+        </h2>
+        <p className="text-muted text-[15px] max-w-md">
           A selection of my open-source projects and public work
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-line border border-line rounded-2xl overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {projects.map((p, i) => (
           <ProjectCard key={p.title} p={p} i={i} />
         ))}
