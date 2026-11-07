@@ -30,6 +30,21 @@
   --grid-strong: rgba(123, 147, 255, 0.45);
 }
 
+/* Inverse surface (contact section): always dark, in both themes */
+.surface-inverse {
+  --background: #0a0f1c;
+  --foreground: #ffffff;
+  --muted: rgba(255, 255, 255, 0.6);
+  --subtle: rgba(255, 255, 255, 0.45);
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #7b93ff;
+  --grid: rgba(255, 255, 255, 0.05);
+}
+
+.dark .surface-inverse {
+  --background: #0c111d;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -42,6 +57,7 @@
   --color-accent-soft: var(--accent-soft);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -76,19 +92,16 @@ body {
 
 /* Blueprint grid used in hero and contact sections */
 .bg-grid {
+  --grid-color: var(--grid);
   background-image:
-    linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center top;
 }
 
 .bg-grid-strong {
-  background-image:
-    linear-gradient(to right, var(--grid-strong) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-strong) 1px, transparent 1px);
-  background-size: 56px 56px;
-  background-position: center top;
+  --grid-color: var(--grid-strong);
 }
 
 @keyframes pulse-dot {

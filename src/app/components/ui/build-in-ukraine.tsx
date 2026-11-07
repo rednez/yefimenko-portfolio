@@ -1,9 +1,9 @@
 export function BuiltInUkraine() {
   return (
-    <p className="inline-flex items-center gap-2 text-xs font-mono text-white/50">
+    <p className="inline-flex items-center gap-2 text-xs font-mono text-subtle">
       <span
         aria-hidden="true"
-        className="inline-flex overflow-hidden rounded-[2px] ring-1 ring-white/15"
+        className="inline-flex overflow-hidden rounded-[2px] ring-1 ring-line"
       >
         <svg width="16" height="11" viewBox="0 0 18 12" fill="none">
           <rect width="18" height="6" fill="#1D70B8" />

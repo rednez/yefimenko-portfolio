@@ -1,7 +1,9 @@
-export function HeroSectionGrid({ heroVisible }: { heroVisible: boolean }) {
-  const fadeMask =
-    'radial-gradient(ellipse 90% 75% at 50% 35%, #000 40%, transparent 100%)';
+const fadeMask =
+  'radial-gradient(ellipse 90% 75% at 50% 35%, #000 40%, transparent 100%)';
+const cursorMask =
+  'radial-gradient(260px circle at var(--mx) var(--my), #000, transparent 70%)';
 
+export function HeroSectionGrid({ heroVisible }: { heroVisible: boolean }) {
   return (
     <div
       aria-hidden="true"
@@ -13,13 +15,8 @@ export function HeroSectionGrid({ heroVisible }: { heroVisible: boolean }) {
 
       {/* Highlighted grid revealed around the cursor */}
       <div
-        className="absolute inset-0 bg-grid-strong"
-        style={{
-          maskImage:
-            'radial-gradient(260px circle at var(--mx) var(--my), #000, transparent 70%)',
-          WebkitMaskImage:
-            'radial-gradient(260px circle at var(--mx) var(--my), #000, transparent 70%)',
-        }}
+        className="absolute inset-0 bg-grid bg-grid-strong"
+        style={{ maskImage: cursorMask, WebkitMaskImage: cursorMask }}
       />
 
       {/* Soft accent glow following the cursor */}

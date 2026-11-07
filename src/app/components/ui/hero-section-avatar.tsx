@@ -10,8 +10,8 @@ const corners = [
 export function HeroSectionAvatar({ heroVisible }: { heroVisible: boolean }) {
   return (
     <div
-      className={`justify-self-start md:justify-self-end transition-all duration-1000 delay-300 ease-[cubic-bezier(.22,1,.36,1)]
-        ${heroVisible ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-95 blur-sm'}`}
+      className={`justify-self-start md:justify-self-end transition-all duration-1000 delay-300 ease-out-expo
+        ${heroVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
     >
       {/* Frame with crop marks */}
       <div className="relative p-3">

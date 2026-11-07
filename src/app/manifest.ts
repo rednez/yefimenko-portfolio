@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { themeColors } from './theme';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -8,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
       'Frontend web developer crafting thoughtful digital experiences, pixel-perfect interfaces, and modern web applications.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0c0a09',
-    theme_color: '#059669',
+    background_color: themeColors.dark,
+    theme_color: themeColors.accent,
     icons: [
       {
         src: '/favicon.ico',

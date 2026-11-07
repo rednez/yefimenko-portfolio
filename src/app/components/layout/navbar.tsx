@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color] duration-300
-        ${scrolled ? 'bg-background/75 backdrop-blur-xl border-line' : 'bg-transparent border-transparent'}`}
+        ${scrolled ? 'bg-background/75 backdrop-blur-md border-line' : 'bg-transparent border-transparent'}`}
     >
       <div className="max-w-6xl mx-auto h-16 px-5 sm:px-10 flex justify-between items-center">
         <a href="#" className="no-underline">

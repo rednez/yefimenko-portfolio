@@ -1,4 +1,4 @@
-const ease = 'cubic-bezier(.22,1,.36,1)';
+import { EASE_OUT_EXPO } from '@/app/utils';
 
 function RevealLine({
   children,
@@ -15,7 +15,7 @@ function RevealLine({
     <span className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
       <span
         className={`block ${className} ${visible ? 'translate-y-0' : 'translate-y-[105%]'}`}
-        style={{ transition: `transform 1s ${ease} ${delay}` }}
+        style={{ transition: `transform 1s ${EASE_OUT_EXPO} ${delay}` }}
       >
         {children}
       </span>
