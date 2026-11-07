@@ -3,21 +3,45 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f6f8;
+  --surface: #ffffff;
+  --foreground: #0b1222;
+  --muted: #586276;
+  --subtle: #8b93a5;
+  --line: #e1e4ea;
+  --line-strong: #c9ced8;
+  --accent: #2a4bf0;
+  --accent-soft: rgba(42, 75, 240, 0.08);
+  --grid: rgba(11, 18, 34, 0.055);
+  --grid-strong: rgba(42, 75, 240, 0.35);
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #070a12;
+  --surface: #0c111d;
+  --foreground: #e8ecf4;
+  --muted: #97a1b5;
+  --subtle: #636d83;
+  --line: #1a2131;
+  --line-strong: #283146;
+  --accent: #7b93ff;
+  --accent-soft: rgba(123, 147, 255, 0.1);
+  --grid: rgba(232, 236, 244, 0.045);
+  --grid-strong: rgba(123, 147, 255, 0.45);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-playfair-display);
 }
 
 html {
@@ -27,42 +51,71 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Geist, Helvetica, sans-serif;
+  font-family: var(--font-inter), Helvetica, sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #34d39955;
-  border-radius: 2px;
+  background: var(--line-strong);
+  border-radius: 3px;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+/* Blueprint grid used in hero and contact sections */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+}
+
+.bg-grid-strong {
+  background-image:
+    linear-gradient(to right, var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-strong) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
 }
 
 @keyframes pulse-dot {
   0%,
   100% {
-    opacity: 1;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent);
   }
   50% {
-    opacity: 0.35;
+    box-shadow: 0 0 0 5px transparent;
   }
-}
-
-.animate-float {
-  animation: float 7s ease-in-out infinite;
 }
 
 .animate-pulse-dot {
-  animation: pulse-dot 2s ease-in-out infinite;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
 }

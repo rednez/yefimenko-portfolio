@@ -8,28 +8,32 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', onScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-between 
-        items-center px-10 py-4 transition-all duration-300 
-        ${scrolled ? 'bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-700' : 'bg-transparent'}`}
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color] duration-300
+        ${scrolled ? 'bg-background/75 backdrop-blur-xl border-line' : 'bg-transparent border-transparent'}`}
     >
-      <NavbarLogo />
+      <div className="max-w-6xl mx-auto h-16 px-5 sm:px-10 flex justify-between items-center">
+        <a href="#" className="no-underline">
+          <NavbarLogo />
+        </a>
 
-      <div className="flex gap-4 sm:gap-8">
-        {['About', 'Projects', 'Contact'].map((l) => (
-          <a
-            key={l}
-            href={`#${l.toLowerCase()}`}
-            className="text-sm font-medium text-slate-500 dark:text-slate-400 no-underline hover:text-emerald-600 transition-colors duration-200"
-          >
-            {l}
-          </a>
-        ))}
+        <div className="flex gap-1 sm:gap-2">
+          {['About', 'Projects', 'Contact'].map((l) => (
+            <a
+              key={l}
+              href={`#${l.toLowerCase()}`}
+              className="px-3 py-1.5 rounded-full text-sm font-medium text-muted no-underline hover:text-foreground hover:bg-foreground/5 transition-colors duration-200"
+            >
+              {l}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   );

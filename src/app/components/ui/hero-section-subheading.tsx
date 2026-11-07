@@ -7,10 +7,10 @@ export function HeroSectionSubHeading({
 }) {
   return (
     <p
-      className={`font-light text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed mb-10 transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`text-muted max-w-xl leading-relaxed tracking-[-0.01em] ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
       style={{
-        fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-        ...fadeUp(heroVisible, '0.45s'),
+        fontSize: 'clamp(1.0625rem, 1.6vw, 1.25rem)',
+        ...fadeUp(heroVisible, '0.55s'),
       }}
     >
       Frontend web developer crafting thoughtful digital experiences — with a

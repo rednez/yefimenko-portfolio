@@ -1,16 +1,40 @@
-import { fadeUp } from '@/app/utils';
+const ease = 'cubic-bezier(.22,1,.36,1)';
+
+function RevealLine({
+  children,
+  visible,
+  delay,
+  className = '',
+}: {
+  children: React.ReactNode;
+  visible: boolean;
+  delay: string;
+  className?: string;
+}) {
+  return (
+    <span className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
+      <span
+        className={`block ${className} ${visible ? 'translate-y-0' : 'translate-y-[105%]'}`}
+        style={{ transition: `transform 1s ${ease} ${delay}` }}
+      >
+        {children}
+      </span>
+    </span>
+  );
+}
 
 export function HeroSectionHeading({ heroVisible }: { heroVisible: boolean }) {
   return (
     <h1
-      className={`font-serif font-black leading-none mb-6 transition-all 
-        duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-      style={{
-        fontSize: 'clamp(3rem, 8vw, 5.5rem)',
-        ...fadeUp(heroVisible, '0.25s'),
-      }}
+      className="font-semibold leading-[0.95] tracking-[-0.045em]"
+      style={{ fontSize: 'clamp(2.75rem, 7.4vw, 6rem)' }}
     >
-      Hello, I&apos;m <span className="text-emerald-500">Vasyl Yefimenko</span>
+      <RevealLine visible={heroVisible} delay="0.15s" className="text-muted">
+        Hello, I&apos;m
+      </RevealLine>
+      <RevealLine visible={heroVisible} delay="0.28s">
+        Vasyl Yefimenko
+      </RevealLine>
     </h1>
   );
 }
