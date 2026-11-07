@@ -5,9 +5,4 @@ export interface Project {
   statusNote?: string;
   tags: string[];
   link: string;
-  bg: string;
-  border: string;
-  shadow: string;
-  tag: string;
-  arrow: string;
 }

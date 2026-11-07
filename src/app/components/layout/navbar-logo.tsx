@@ -1,7 +1,7 @@
 export function NavbarLogo() {
   return (
-    <span className="font-serif font-black text-lg">
-      V.Yefimenko<span className="text-emerald-500">.</span>
+    <span className="font-semibold text-[15px] tracking-[-0.02em] text-foreground">
+      V. Yefimenko
     </span>
   );
 }

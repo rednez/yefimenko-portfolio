@@ -5,6 +5,7 @@ import { useIntersection } from '@/app/hooks/intersections';
 import { Social } from '@/app/types';
 import dayjs from 'dayjs';
 import { AboutSectionSkillChip } from './about-section-skill-chip';
+import { SectionLabel } from './section-label';
 
 const socials: Social[] = [
   {
@@ -30,40 +31,44 @@ export function AboutSection() {
   const experienceYears = dayjs().diff(dayjs('2015-09-01'), 'year');
 
   return (
-    <section id="about" className="px-10 pb-20 max-w-5xl mx-auto">
+    <section
+      id="about"
+      className="max-w-6xl mx-auto px-5 sm:px-10 pt-12 pb-24 md:pt-16 md:pb-32 scroll-mt-16"
+    >
       <div
         ref={aboutRef}
-        className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center transition-all duration-700 ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-14 lg:gap-20 items-start transition-all duration-700 ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
       >
         <div>
-          <p className="font-mono text-xs text-emerald-600 dark:text-emerald-400 tracking-widest font-semibold uppercase mb-4">
-            About Me
-          </p>
-          <h2 className="font-serif font-bold leading-tight tracking-tight mb-6 text-4xl">
+          <SectionLabel className="mb-6">About Me</SectionLabel>
+          <h2 className="font-semibold leading-[1.02] tracking-[-0.04em] mb-8 text-4xl sm:text-5xl">
             I build things
             <br />
-            for the web
+            <span className="text-muted">for the web</span>
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm">
-            I&apos;m a frontend developer with {experienceYears} years of
-            experience turning complex problems into clean, intuitive products.
-            I care deeply about performance, accessibility, and the tiny details
-            that make an interface feel alive — with solid backend experience to
-            back it up.
+          <p className="text-muted leading-relaxed mb-4 text-[15px] max-w-[60ch]">
+            I&apos;m a frontend developer with{' '}
+            <span className="text-foreground font-medium">
+              {experienceYears} years
+            </span>{' '}
+            of experience turning complex problems into clean, intuitive
+            products. I care deeply about performance, accessibility, and the
+            tiny details that make an interface feel alive — with solid backend
+            experience to back it up.
           </p>
-          <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm mb-8">
+          <p className="text-muted leading-relaxed text-[15px] mb-10 max-w-[60ch]">
             I have deep experience in the Fintech domain, building products for
             banking, payments, and financial data — where reliability, security,
             and precision are non-negotiable.
           </p>
-          <div className="flex gap-5 flex-wrap">
+          <div className="flex gap-3 flex-wrap">
             {socials.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 no-underline hover:text-emerald-600 transition-colors duration-200"
+                className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-line-strong text-sm font-medium text-foreground no-underline hover:border-foreground transition-colors duration-200"
               >
                 <svg
                   className="w-4 h-4"
@@ -78,7 +83,10 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div ref={skillsRef} className="flex flex-wrap gap-2.5">
+        <div
+          ref={skillsRef}
+          className="flex flex-wrap gap-2.5 lg:mt-14"
+        >
           {skills.map((skill, i) => (
             <AboutSectionSkillChip
               key={skill.label}

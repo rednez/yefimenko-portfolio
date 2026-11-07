@@ -56,15 +56,15 @@ export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="inline-flex items-center gap-1 rounded-full bg-slate-800 p-1 mt-10">
+    <div className="inline-flex items-center gap-0.5 rounded-full border border-line bg-foreground/[0.03] p-1">
       {options.map((o) => (
         <button
           key={o.value}
           onClick={() => setTheme(o.value)}
           className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200 cursor-pointer ${
             theme === o.value
-              ? 'bg-slate-700 text-white'
-              : 'text-slate-500 hover:text-slate-300'
+              ? 'bg-foreground/10 text-foreground'
+              : 'text-subtle hover:text-muted'
           }`}
           aria-label={`Switch to ${o.label} theme`}
         >

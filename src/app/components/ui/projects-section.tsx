@@ -1,33 +1,36 @@
 import { projects } from '@/app/data';
 import { ProjectCard } from './project-card';
+import { SectionLabel } from './section-label';
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="px-10 pt-12 pb-12 max-w-5xl mx-auto">
-      <p className="font-mono text-xs text-emerald-600 dark:text-emerald-400 tracking-widest font-semibold uppercase mb-3">
-        Public Work
-      </p>
-      <h2 className="font-serif font-bold text-4xl tracking-tight mb-3">
-        Featured Projects
-      </h2>
-      <p className="text-slate-400 dark:text-slate-500 text-sm mb-12 max-w-md">
-        A selection of my open-source projects and public work
-      </p>
+    <section
+      id="projects"
+      className="max-w-6xl mx-auto px-5 sm:px-10 pt-8 pb-24 md:pb-32 scroll-mt-16"
+    >
+      <div className="mb-12">
+        <SectionLabel className="mb-6">Public Work</SectionLabel>
+        <h2 className="font-semibold text-4xl sm:text-5xl tracking-[-0.04em] leading-[1.02] mb-4">
+          Featured Projects
+        </h2>
+        <p className="text-muted text-[15px] max-w-md">
+          A selection of my open-source projects and public work
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {projects.map((p, i) => (
           <ProjectCard key={p.title} p={p} i={i} />
         ))}
       </div>
 
-      <div className="text-center mt-12">
+      <div className="mt-10">
         <a
           href="https://github.com/rednez"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 
-          dark:text-slate-500 no-underline border-b border-slate-300 dark:border-slate-600 pb-0.5 
-          hover:text-emerald-600 hover:border-emerald-400 transition-all duration-200"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted no-underline
+            underline-offset-4 decoration-line-strong hover:text-foreground hover:underline transition-colors duration-200"
         >
           See all public projects on GitHub →
         </a>

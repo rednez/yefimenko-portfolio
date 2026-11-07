@@ -1,46 +1,65 @@
 import { ThemeSwitcher } from '../layout/theme-switcher';
+import { ArrowIcon } from './arrow-icon';
 import { BuiltInUkraine } from './build-in-ukraine';
 import { FooterCopyrights } from './footer-copyrights';
+import { SectionLabel } from './section-label';
+
+const glow =
+  'radial-gradient(closest-side, color-mix(in srgb, var(--accent) 35%, transparent), transparent)';
+const fadeMask =
+  'radial-gradient(ellipse 70% 80% at 50% 0%, #000 30%, transparent 100%)';
 
 export function ContactsSection() {
   return (
     <section
       id="contact"
-      className="bg-slate-900 dark:bg-slate-950 px-10 pt-24 pb-16 text-center"
+      className="surface-inverse relative overflow-hidden bg-background text-foreground dark:border-t dark:border-line"
     >
-      <p className="font-mono text-xs text-emerald-400 tracking-widest font-semibold uppercase mb-5">
-        Contact
-      </p>
-      <h2
-        className="font-serif font-black text-white leading-tight tracking-tight mb-5"
-        style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}
-      >
-        Let&apos;s build something
-        <br />
-        <span className="text-emerald-400">together.</span>
-      </h2>
-      <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed mb-10">
-        Always open to collaboration, shared ideas, and thoughtful conversations
-        about tech.
-      </p>
-      <BuiltInUkraine />
-      <a
-        href="mailto:hello@yefimenko.dev"
-        className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white rounded-full text-base font-semibold no-underline hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-200"
-      >
-        Say Hello
-        <svg
-          className="w-4 h-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </a>
-      <FooterCopyrights />
-      <ThemeSwitcher />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-grid pointer-events-none"
+        style={{ maskImage: fadeMask, WebkitMaskImage: fadeMask }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -top-64 left-1/2 -translate-x-1/2 w-[1200px] h-[700px] pointer-events-none"
+        style={{ background: glow }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-10 pt-28 md:pt-36 pb-12">
+        <div className="text-center">
+          <SectionLabel className="mb-8">Contact</SectionLabel>
+          <h2
+            className="font-semibold leading-[0.98] tracking-[-0.045em] mb-6"
+            style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5rem)' }}
+          >
+            Let&apos;s build something
+            <br />
+            <span className="text-subtle">together.</span>
+          </h2>
+          <p className="text-muted text-base max-w-sm mx-auto leading-relaxed mb-10">
+            Always open to collaboration, shared ideas, and thoughtful
+            conversations about tech.
+          </p>
+          <a
+            href="mailto:hello@yefimenko.dev"
+            className="group inline-flex items-center gap-2.5 h-14 px-8 bg-foreground text-background rounded-full text-base font-semibold no-underline
+              shadow-[0_20px_60px_-15px_color-mix(in_srgb,var(--accent)_70%,transparent)]
+              hover:bg-accent transition-colors duration-200"
+          >
+            Say Hello
+            <ArrowIcon className="transition-transform duration-200 group-hover:translate-x-0.5" />
+          </a>
+        </div>
+
+        <div className="mt-28 pt-8 border-t border-line flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <FooterCopyrights />
+            <BuiltInUkraine />
+          </div>
+          <ThemeSwitcher />
+        </div>
+      </div>
     </section>
   );
 }

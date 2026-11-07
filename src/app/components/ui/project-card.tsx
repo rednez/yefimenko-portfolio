@@ -1,7 +1,9 @@
 'use client';
 
+import { useCursorVars } from '@/app/hooks/cursor-vars';
 import { useIntersection } from '@/app/hooks/intersections';
 import { Project } from '@/app/types';
+import { ArrowIcon } from './arrow-icon';
 import { ProjectStatusBadge } from './project-status-badge';
 import { ProjectStatusNote } from './project-status-note';
 
@@ -13,44 +15,53 @@ interface ProjectCardProps {
 export function ProjectCard({ p, i }: ProjectCardProps) {
   const [ref, visible] = useIntersection<HTMLAnchorElement>();
 
+  const onPointerMove = useCursorVars<HTMLAnchorElement>();
+
   return (
     <a
       href={p.link}
       target="_blank"
       rel="noreferrer"
       ref={ref}
-      className={`
-        block no-underline rounded-2xl p-7 border-2 border-transparent dark:border-stone-800
-        ${p.bg} ${p.border} ${p.shadow}
-        hover:shadow-xl hover:-translate-y-1
-        transition-all duration-300
-        ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-      `}
-      style={{ transitionDelay: `${i * 70}ms` }}
+      onPointerMove={onPointerMove}
+      className={`group relative flex flex-col no-underline bg-surface p-7 sm:p-9 md:min-h-72 overflow-hidden
+        rounded-2xl border border-line hover:border-line-strong hover:-translate-y-1
+        hover:shadow-[0_24px_48px_-24px_color-mix(in_srgb,var(--accent)_35%,transparent)]
+        ${visible ? 'opacity-100' : 'opacity-0'}`}
+      style={{
+        transition: `opacity 0.7s ease ${i * 80}ms, transform 0.3s ease, border-color 0.2s ease, box-shadow 0.3s ease`,
+      }}
     >
-      <div className="flex justify-between items-start mb-3">
+      {/* Cursor spotlight */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background:
+            'radial-gradient(380px circle at var(--mx) var(--my), var(--accent-soft), transparent 70%)',
+        }}
+      />
+
+      <div className="relative flex justify-between items-start gap-4 mb-5">
         <ProjectStatusBadge project={p} />
-        <svg
-          className={`shrink-0 ml-2 mt-0.5 w-4 h-4 ${p.arrow} transition-transform duration-200`}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M7 17L17 7M7 7h10v10" />
-        </svg>
+        <span className="shrink-0 grid place-items-center w-9 h-9 rounded-full border border-line text-muted transition-colors duration-200 group-hover:bg-foreground group-hover:border-foreground group-hover:text-background">
+          <ArrowIcon
+            direction="up-right"
+            className="transition-transform duration-300 group-hover:rotate-45"
+          />
+        </span>
       </div>
-      <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5">
+
+      <p className="relative text-[15px] text-muted leading-relaxed mb-5 max-w-[52ch]">
         {p.description}
       </p>
       {p.statusNote && <ProjectStatusNote note={p.statusNote} />}
-      <div className="flex flex-wrap gap-1.5">
+
+      <div className="relative mt-auto pt-6 flex flex-wrap gap-1.5">
         {p.tags.map((t) => (
           <span
             key={t}
-            className={`font-mono text-xs font-semibold px-2.5 py-1 rounded-full ${p.tag}`}
+            className="font-mono text-xs font-medium px-2.5 py-1 rounded-full bg-accent-soft text-accent ring-1 ring-inset ring-accent/20"
           >
             {t}
           </span>
