@@ -47,13 +47,11 @@ describe('HeroSection', () => {
   it('reveals the content shortly after mount', () => {
     vi.useFakeTimers();
     render(<HeroSection />);
-    const badge = screen.getByText(
-      'Available for cool projects',
-    ).parentElement!;
+    const intro = screen.getByText(/Frontend web developer crafting/);
 
-    expect(badge).toHaveClass('opacity-0');
+    expect(intro).toHaveClass('opacity-0');
     act(() => vi.advanceTimersByTime(100));
-    expect(badge).toHaveClass('opacity-100');
+    expect(intro).toHaveClass('opacity-100');
   });
 });
 
