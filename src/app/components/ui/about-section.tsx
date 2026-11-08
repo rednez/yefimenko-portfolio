@@ -33,7 +33,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="max-w-6xl mx-auto px-5 sm:px-10 pt-12 pb-24 md:pt-16 md:pb-32 scroll-mt-16"
+      className="max-w-6xl mx-auto px-5 sm:px-10 pt-12 pb-10 md:pt-16 md:pb-18 scroll-mt-16"
     >
       <div
         ref={aboutRef}
@@ -83,10 +83,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div
-          ref={skillsRef}
-          className="flex flex-wrap gap-2.5 lg:mt-14"
-        >
+        <div ref={skillsRef} className="flex flex-wrap gap-2.5 lg:mt-14">
           {skills.map((skill, i) => (
             <AboutSectionSkillChip
               key={skill.label}

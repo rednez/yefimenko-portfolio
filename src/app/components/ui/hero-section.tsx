@@ -3,7 +3,6 @@
 import { useCursorVars } from '@/app/hooks/cursor-vars';
 import { useEffect, useState } from 'react';
 import { HeroSectionAvatar } from './hero-section-avatar';
-import { HeroSectionBadge } from './hero-section-badge';
 import { HeroSectionCtas } from './hero-section-ctas';
 import { HeroSectionGrid } from './hero-section-grid';
 import { HeroSectionHeading } from './hero-section-heading';
@@ -25,12 +24,9 @@ export function HeroSection() {
     >
       <HeroSectionGrid heroVisible={heroVisible} />
 
-      <div className="relative z-10 min-h-svh flex flex-col justify-center max-w-6xl mx-auto px-5 sm:px-10 pt-32 pb-16">
+      <div className="relative z-10 flex flex-col justify-center max-w-6xl mx-auto px-5 sm:px-10 pt-30 pb-8 sm:pt-30">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 md:gap-16 items-end">
-          <div>
-            <HeroSectionBadge heroVisible={heroVisible} />
-            <HeroSectionHeading heroVisible={heroVisible} />
-          </div>
+          <HeroSectionHeading heroVisible={heroVisible} />
           <HeroSectionAvatar heroVisible={heroVisible} />
         </div>
 
